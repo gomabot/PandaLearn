@@ -1,0 +1,19 @@
+<header>
+  <div id="logo">
+    <a [routerLink]="['/home']">
+      <img alt="logo" id="imglogo" src="/assets/images/pandaLearn.png">
+    </a>
+  </div>
+  <input type="checkbox" id="menu-toggle" [(ngModel)]="menuOpen" [disabled]="menuOpen">
+  <label for="menu-toggle" class="menu-icon">&#9776;</label>
+  <nav id="menuNavegacion" [ngClass]="{'open': menuOpen}">
+    <ul id="enlacesHeader">
+      <li><a [routerLink]="['/home']" class="enlacesMenu" (click)="closeMenu()">Aprender</a></li>
+      <li><a [routerLink]="['/vocabulary']" class="enlacesMenu" (click)="closeMenu()">Vocabulario</a></li>
+      <li><a [routerLink]="['/exams']" class="enlacesMenu" (click)="closeMenu()">Examenes</a></li>
+      <li *ngIf="this.registeredUserService.registeredUser != null">
+        <button (click)="logOut()" class="enlacesMenu small-button" (click)="closeMenu()">Salir</button>
+      </li>
+    </ul>
+  </nav>
+</header>

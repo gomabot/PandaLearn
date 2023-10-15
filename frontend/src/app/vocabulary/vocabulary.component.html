@@ -1,0 +1,24 @@
+<div class="vocabulary-container">
+  <div class="vocabulary-list">
+    <!-- Itera sobre la lista de vocabulario -->
+    <ng-container *ngFor="let word of vocabularyList; let i = index">
+      <!-- Verifica si es el inicio de un nuevo nivel de vocabulario -->
+      <ng-container
+        *ngIf="i === 0 || (word.lessonId !== vocabularyList[i - 1].lessonId && word.lessonId <= registeredUserService.getLesson())">
+        <!-- Separador entre los niveles de vocabulario -->
+        <div class="separator">
+          <div class="separator-line"></div>
+          <div class="separator-text">lección {{ word.lessonId + 1 }} </div>
+        </div>
+      </ng-container>
+      <!-- Muestra las tarjetas de vocabulario si el nivel de lección es menor o igual al nivel del usuario registrado -->
+      <div *ngIf="word.lessonId <= registeredUserService.getLesson()" class="vocabulary-item">
+        <div class="word-pinyin">
+          <div class="word">{{ word.word }}</div>
+          <div class="pinyin">{{ word.pinyin }}</div>
+        </div>
+        <div class="translation">{{ word.translation }}</div>
+      </div>
+    </ng-container>
+  </div>
+</div>

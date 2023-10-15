@@ -1,0 +1,28 @@
+<ng-container *ngIf="!showSummary">
+  <div *ngIf="exercises.length > 0" class="exercise-container">
+    <div class="exercises-content">
+      <h2 class="exercise-question">{{ exercises[currentExerciseIndex].question }}</h2>
+
+      <div class="answer-options">
+        <div *ngFor="let option of getAnswerOptions()">
+          <button (click)="answerSelected(option)" class="answer-button">{{ option }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="showSummary">
+  <div class="summary-container">
+    <div class="exercises-content">
+      <h2 *ngIf="correctAnswers >= 23; else failed" class="summary-title">¡Enhorabuena! <br> ¡Conseguiste superar el
+        exámen!</h2>
+      <ng-template #failed>
+        <h2 class="summary-title">¡No has conseguido superar el examen!</h2>
+        <p class="summary-text">Tienes que contestar correctamente un mínimo de 23 preguntas.</p>
+      </ng-template>
+      <p class="summary-text">Has completado {{ correctAnswers }} de {{ exercises.length }} retos correctamente.</p>
+      <button (click)="returnToHome()" class="summary-button">Volver al inicio</button>
+    </div>
+  </div>
+</ng-container>

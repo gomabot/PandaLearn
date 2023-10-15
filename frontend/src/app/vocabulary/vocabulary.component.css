@@ -1,0 +1,64 @@
+
+.vocabulary-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.vocabulary-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.vocabulary-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F59D23;
+  padding: 20px;
+  border-radius: 10px;
+  color: #FFFFFF;
+  font-size: 25px;
+}
+
+.word-pinyin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.word {
+  font-weight: bold;
+}
+
+.pinyin {
+  font-style: italic;
+}
+
+.translation {
+  flex: 1;
+  text-align: center;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.separator-line {
+  flex-grow: 1;
+  height: 2px;
+  width: 80%;
+  background-color: #F59D23;
+  margin-right: 10px;
+}
+
+.separator-text {
+  font-size: 18px;
+  font-weight: bold;
+  white-space: nowrap;
+}

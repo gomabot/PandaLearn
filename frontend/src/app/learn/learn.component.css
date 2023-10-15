@@ -1,0 +1,57 @@
+.path-container {
+  background-color: #5D5F79;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.path {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.lesson {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.lesson-link {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  text-align: center;
+  background-color: #F59D23;
+  color: #ffffff;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+  min-width: 15vw;
+}
+
+.lesson-link:hover {
+  background-color: rgba(245, 157, 35, 0.8);
+}
+
+.lesson-name {
+  margin-left: 10px;
+}
+
+.connector {
+  width: 2px;
+  height: 70px;
+  background-color: #F59D23;
+}
+
+.withoutConnector {
+  height: 70px;
+}
+
+.lesson-link.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+}

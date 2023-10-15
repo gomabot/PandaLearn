@@ -1,0 +1,17 @@
+<div class="path-container">
+  <div class="path">
+    <ng-container *ngFor="let lesson of lessons; let last = last; let index = index">
+      <div [ngClass]="{'last-lesson': last}" class="lesson">
+        <a [ngClass]="{'disabled': index > registeredUserService.getLesson()}" [routerLink]="['/exercises', lesson.id]"
+           class="lesson-link">
+          <div class="lesson-name">{{ lesson.name }}</div>
+        </a>
+      </div>
+      <div *ngIf="index < registeredUserService.getLesson(); else withoutConector" class="connector"></div>
+      <ng-template #withoutConector>
+        <div class="withoutConnector"></div>
+      </ng-template>
+
+    </ng-container>
+  </div>
+</div>
